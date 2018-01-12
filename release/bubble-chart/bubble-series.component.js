@@ -16,6 +16,7 @@ var BubbleSeriesComponent = /** @class */ (function () {
         this.select = new EventEmitter();
         this.activate = new EventEmitter();
         this.deactivate = new EventEmitter();
+        this.hovered = new EventEmitter();
     }
     BubbleSeriesComponent.prototype.ngOnChanges = function (changes) {
         this.update();
@@ -87,6 +88,12 @@ var BubbleSeriesComponent = /** @class */ (function () {
     };
     BubbleSeriesComponent.prototype.onClick = function (value, label) {
         this.select.emit({
+            name: label,
+            value: value
+        });
+    };
+    BubbleSeriesComponent.prototype.onHover = function (value, label) {
+        this.hovered.emit({
             name: label,
             value: value
         });
@@ -180,6 +187,10 @@ var BubbleSeriesComponent = /** @class */ (function () {
         Output(),
         __metadata("design:type", Object)
     ], BubbleSeriesComponent.prototype, "deactivate", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], BubbleSeriesComponent.prototype, "hovered", void 0);
     BubbleSeriesComponent = __decorate([
         Component({
             selector: 'g[ngx-charts-bubble-series]',

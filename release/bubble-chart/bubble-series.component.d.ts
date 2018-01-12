@@ -16,6 +16,7 @@ export declare class BubbleSeriesComponent implements OnChanges {
     select: EventEmitter<{}>;
     activate: EventEmitter<{}>;
     deactivate: EventEmitter<{}>;
+    hovered: EventEmitter<{}>;
     areaPath: any;
     circles: any[];
     ngOnChanges(changes: SimpleChanges): void;
@@ -23,6 +24,7 @@ export declare class BubbleSeriesComponent implements OnChanges {
     getCircles(): any[];
     getTooltipText(circle: any): string;
     onClick(value: any, label: any): void;
+    onHover(value: any, label: any): void;
     isActive(entry: any): boolean;
     isVisible(circle: any): boolean;
     activateCircle(circle: any): void;

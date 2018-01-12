@@ -7715,6 +7715,7 @@ var BubbleSeriesComponent = /** @class */ (function () {
         this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.activate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.deactivate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.hovered = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     BubbleSeriesComponent.prototype.ngOnChanges = function (changes) {
         this.update();
@@ -7786,6 +7787,12 @@ var BubbleSeriesComponent = /** @class */ (function () {
     };
     BubbleSeriesComponent.prototype.onClick = function (value, label) {
         this.select.emit({
+            name: label,
+            value: value
+        });
+    };
+    BubbleSeriesComponent.prototype.onHover = function (value, label) {
+        this.hovered.emit({
             name: label,
             value: value
         });
@@ -7879,6 +7886,10 @@ var BubbleSeriesComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
         __metadata("design:type", Object)
     ], BubbleSeriesComponent.prototype, "deactivate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BubbleSeriesComponent.prototype, "hovered", void 0);
     BubbleSeriesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'g[ngx-charts-bubble-series]',
