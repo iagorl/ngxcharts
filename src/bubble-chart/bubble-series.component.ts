@@ -34,6 +34,7 @@ import { formatLabel } from '../common/label.helper';
           [data]="circle.value"
           [classNames]="circle.classNames"
           (select)="onClick($event, circle.label)"
+          (mouseenter)="onHover($event, circle.label)"
           (activate)="activateCircle(circle)"
           (deactivate)="deactivateCircle(circle)"
           ngx-tooltip
