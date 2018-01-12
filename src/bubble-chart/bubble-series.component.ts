@@ -79,6 +79,7 @@ export class BubbleSeriesComponent implements OnChanges {
   @Output() select = new EventEmitter();
   @Output() activate = new EventEmitter();
   @Output() deactivate = new EventEmitter();
+  @Output() hovered = new EventEmitter();
 
   areaPath: any;
   circles: any[];
@@ -174,6 +175,13 @@ export class BubbleSeriesComponent implements OnChanges {
 
   onClick(value, label): void {
     this.select.emit({
+      name: label,
+      value
+    });
+  }
+
+  onHover(value, label): void {
+    this.hovered.emit({
       name: label,
       value
     });
